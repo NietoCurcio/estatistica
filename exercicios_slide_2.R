@@ -49,9 +49,12 @@ var(data$idade)
 
 
 ## idade
-# id <- mean(data$idade)
-id <- ((20 * 11) + (24 * 6) + (28 * 2) + (32 * 1) + (36 * 2)) / 22
-divisor <- (((20 - id)**2) * 11) + (((24 - id)**2) * 6) + (((28 - id)**2) * 2) + (((32 - id)**2) * 1) + (((36 - id)**2) * 2)
+xi <- ((20 * 11) + (24 * 6) + (28 * 2) + (32 * 1) + (36 * 2)) / 22
+divisor <- (((20 - xi)**2) * 11) +
+  (((24 - xi)**2) * 6) +
+  (((28 - xi)**2) * 2) +
+  (((32 - xi)**2) * 1) +
+  (((36 - xi)**2) * 2)
 denominador <- nrow(data) - 1
 varianceIdade <- divisor / denominador
 varianceIdade

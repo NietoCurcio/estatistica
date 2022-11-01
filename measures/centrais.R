@@ -1,5 +1,3 @@
-## media
-
 getMeanPop <- function(variable_vector) {
   s <- sum(variable_vector)
   return(s / length(variable_vector))
@@ -9,8 +7,6 @@ getMeanDistFreq <- function(dFreq) {
   s <- sum(dFreq$xi * dFreq$Fi)
   return(s / last(dFreq$Fai))
 }
-
-## mediana
 
 getMedianPop1 <- function(variable_vector) {
   sorted <- variable_vector[order(variable_vector)] # or sort(variable)
@@ -50,8 +46,8 @@ getMedianDistFreq <- function(dFreq) {
     filter(Fai >= p) %>%
     column_to_rownames("rn") %>%
     rownames %>%
-    as.integer %>%
-    first
+    first %>%
+    as.integer
 
   li <- dFreq$lowerBound[i]
   h <- dFreq$upperBound[i] - li
@@ -61,19 +57,16 @@ getMedianDistFreq <- function(dFreq) {
  li + h * (p - FaiMinus1) / Fi
 }
 
-## moda
-
 getModePop <- function(variable_vector) {
   freq_vector <- table(variable_vector) # or data.frame(table(vector))
   as.numeric(names(freq_vector[freq_vector == max(freq_vector)]))
 }
 
 getModeDistFreq <- function(dFreq) {
-  i <- dFreq[dFreq$Fi >= max(dFreq$Fi)] %>%
+  i <- dFreq[dFreq$Fi >= max(dFreq$Fi), ] %>%
     rownames %>%
-    as.integer %>%
-    first
-
+    first %>%
+    as.integer
 
   li <- dFreq$lowerBound[i]
   h <- dFreq$upperBound[i] - li

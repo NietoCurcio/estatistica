@@ -14,7 +14,7 @@ Dados populacionais:
 
 $ \mu = \frac{\sum(x_i)}{N} $
 
-Dados amostrais e/ou Distribuição de frequência em classes:
+Dados amostrais:
 
 $ \overline{x} = \frac{\sum(x_i)}{n} $
 
@@ -34,15 +34,15 @@ Dados populacionais:
 
 $ p = 0.5(n + 1) $
 
-$ Md = X_{l_p} + F_p(X_{l_{p + 1}} - X_{l_p}) $
+$ Md = X*{l_p} + F_p(X*{l*{p + 1}} - X*{l_p}) $
 
 lp é a parte inteira de p e Fp é a parte decimal.
 
-Dados amostrais e/ou Distribuição de frequência em classes:
+Dados amostrais:
 
 $ p = \frac{n}{2} $
 
-$ Md = l_i + \frac{h(p - F_{ai - 1})}{F_i} $
+$ Md = l*i + \frac{h(p - F*{ai - 1})}{F_i} $
 
 É utilizado o indice i tal que Fai >= p
 
@@ -50,9 +50,9 @@ $ Md = l_i + \frac{h(p - F_{ai - 1})}{F_i} $
 
 Para dados populacionais é o elemento que mais aparece da variável.
 
-Dados amostrais e/ou Distribuição de frequência em classes:
+Dados amostrais:
 
-$ M_o = l_i + \frac{h(F_i - F_{i - 1})}{(F_i - F_{i - 1}) + ((F_i - F_{i + 1}))} $
+$ M*o = l_i + \frac{h(F_i - F*{i - 1})}{(F*i - F*{i - 1}) + ((F*i - F*{i + 1}))} $
 
 É utilizado o indice i tal que max(Fi), ou seja, maior frequência absoluta (classe modal).
 
@@ -66,20 +66,20 @@ Dados populacionais
 
 $ p = 0.25(n + 1) $
 
-$ Q_1 = X_{l_p} + F_p(X_{l_{p + 1}} - X_{l_p}) $
+$ Q*1 = X*{l*p} + F_p(X*{l*{p + 1}} - X*{l_p}) $
 
 Exemplo quadragesimo decil ($ p = 0.40(n + 1) $) e nonagesimo nono percentil ($ p = 0.99(n + 1) $).
 Mesma fórmula porém em vez de ser escrito como Q1 é escrito como D40 e P99.
 
 Para Q2 e Q3 são usados 0.5 e 0.75 em vez de 0.25 no cálculo do p, respectivamente.
 
-Dados amostrais e/ou Distribuição de frequência em classes:
+Dados amostrais:
 
 Para o calculo do p divide n por 4 para os quartis, por 10 para os decis e 100 para os percentis. Para o valor de k, se por exemplo se deseja o terceiro quartil, k = 3.
 
 $ p = \frac{n}{4} \cdot k $
 
-$ Md = l_i + \frac{h(p - F_{ai - 1})}{F_i} $
+$ Md = l*i + \frac{h(p - F*{ai - 1})}{F_i} $
 
 É utilizado o indice i tal que Fai >= p
 
@@ -105,11 +105,11 @@ $ D_m = \frac{\sum(|x_i - \mu|)}{N} $
 
 $ \sigma^2 = \frac{\sum(x_i - \mu)^2}{N} $
 
-Dados amostrais e/ou Distribuição de frequência em classes:
+Notação para dados amostrais:
 
-$ D_m = \frac{\sum(|x_i - \mu| \cdot F_i)}{n} $
+$ D_m = \frac{\sum(|x_i - \overline{x}| \cdot F_i)}{n} $
 
-$ s^2 = \frac{\sum(x_i - \mu)^2 \cdot F_i}{n - 1} $
+$ s^2 = \frac{\sum(x_i - \overline{x})^2 \cdot F_i}{n - 1} $
 
 Note que a variância lembra bastante a função de custo MSE (Mean squared error). É uma função contínua e diferenciável.
 
@@ -118,6 +118,8 @@ Note que a variância lembra bastante a função de custo MSE (Mean squared erro
 É a raiz quadrada da Variância. Para dados populacionais a notação é sigma e para amostrais é s.
 
 <strong>Coeficiente de Variação</strong>:
+
+Útil para verificar homogeneidade dos dados. Caso o coeficiente seja maior que 50% a distribuição é altamente dispersa (heterogênea). Se for menor que 50% a média é uma medida representativa. Média tendendo a 0 torna esse coeficiente inútil.
 
 $ CoefV = \frac{\sigma}{\mu} $ ou $ CoefV = \frac{s}{\overline{x}} $
 
@@ -131,13 +133,13 @@ $ As = \frac{\mu - M_o}{\sigma} $ ou $ As = \frac{\overline{x} - M_o}{s} $
 
 Distribuição é simétrica se média == mediana == moda ou As == 0.
 
-Se média <= mediana  <= moda ou As < 0 é assimétrica negativa. Isso significa que a cauda está à esquerda da distribuição (left skewed).
+Se média <= mediana <= moda ou As < 0 é assimétrica negativa. Isso significa que a cauda está à esquerda da distribuição (left skewed).
 
-Se média >= mediana  >= moda ou As > 0 é assimétrica positiva. Isso significa que a cauda está à direita da distribuição (right skewed).
+Se média >= mediana >= moda ou As > 0 é assimétrica positiva. Isso significa que a cauda está à direita da distribuição (right skewed).
 
 A medida de Curtose indica o grau de achatamento e quantifica a concentração ou dispersão dos dados:
 
-$ K = \frac{Q_3 - Q_1}{2(P_{90} - P_{10})} $
+$ K = \frac{Q*3 - Q_1}{2(P*{90} - P\_{10})} $
 
 se K < 0.263 a distribuilção é leptocúrtica (concentração no centro).
 se K = 0.263 a distribuilção é mesocúrtica (razoavelmente no centro).

@@ -20,10 +20,12 @@ getClassesMean <- function(classes) {
 getAbsoluteFrequencies <- function(classes, variableVector) {
   fi <- c()
 
-  for (i in seq_len(length(classes))) {
+  len <- length(classes)
+
+  for (i in seq_len(len)) {
     lowerAndUpperBounds <- classes[[i]]
 
-    if (i < k)
+    if (i < len)
       filter <- variableVector >= lowerAndUpperBounds[1] & variableVector < lowerAndUpperBounds[2]
     else
       filter <- variableVector >= lowerAndUpperBounds[1] & variableVector <= lowerAndUpperBounds[2]
@@ -60,7 +62,7 @@ getIntervals <- function(classes_list) {
 
 getDistDf <- function(variable_vector) {
   AT <- max(variable_vector) - min(variable_vector)
-  k <- round(sqrt(nrow(data)))
+  k <- round(sqrt(length(variable_vector)))
   h <- AT / k
 
   classes <- getKClassesByAmplitudeH(k, h, min(variable_vector))
