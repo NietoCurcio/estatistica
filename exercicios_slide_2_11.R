@@ -190,6 +190,46 @@ getMeasuresByPop(variable_name, variable)
 
 getMeasuresByDistFreq(variable_name, distFreq)
 
+### Boxplot
+
+Li <- getSeparatrizPop("quartil", 1, data[[variable_name]])  - 1.5 * getATInterquartilicaPop(data[[variable_name]])
+Ls <- getSeparatrizPop("quartil", 3, data[[variable_name]])  + 1.5 * getATInterquartilicaPop(data[[variable_name]])
+
+## 1. ------------------------------------------------
+
+dataByIdade <- data %>% count(!!sym(variable_name))
+dataByIdade <- data %>%
+  left_join(dataByIdade, by = c("idade" = "idade")) %>%
+  select(c(idade, n))
+dataByIdade <- dataByIdade %>% mutate(
+  idade.alpha = as.numeric(idade >= Li & idade <= Ls)
+)
+
+ggplot(data = dataByIdade, aes_string(x = variable_name)) +
+  geom_jitter(aes(y = n, alpha = idade.alpha)) +
+  geom_boxplot(alpha = 0.5, outlier.colour = "red")
+
+ggplot(data = data, aes_string(x = variable_name)) +
+  geom_boxplot(outlier.color = "red")
+
+## 2. ------------------------------------------------
+
+dataByIdadeAndSexo <- data %>% count(!!sym(variable_name), sexo)
+dataByIdadeAndSexo <- data %>%
+  left_join(dataByIdadeAndSexo, by = c("idade" = "idade", "sexo" = "sexo")) %>%
+  select(c(idade, n))
+dataByIdadeAndSexo <- dataByIdadeAndSexo %>% mutate(
+  idade.alpha = as.numeric(idade >= Li & idade <= Ls)
+)
+
+ggplot(data = dataByIdadeAndSexo, aes_string(x = "sexo", y = variable_name)) +
+  geom_jitter(aes(alpha = idade.alpha)) + # # make outliers already shown by boxplot layer transparent
+  geom_boxplot(alpha = 0.5, outlier.color = "red") +
+  scale_alpha_continuous(range = c(0, 1)) # make outliers already shown transparent (not lightgrey)
+
+ggplot(data = data, aes(x = sexo, y = idade)) +
+  geom_boxplot(alpha = 0.5, outlier.color = "red")
+
 # Dúvidas,
 # 1. o h nao precisa ser necessariamente arredondado?
 
