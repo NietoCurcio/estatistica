@@ -3,6 +3,9 @@ library(tidyverse)
 
 source("dataTable.R")
 
+data
+length(data$idade[data$idade == 24])
+
 #### Question 3
 
 ### Barchart
@@ -88,7 +91,10 @@ ggplot(datainfobysex, aes(x = info, fill = sexo, y = n)) +
 #### Question 4
 
 sort(data$peso)
-data$peso[order(data$peso)]
+peso2 <- data$peso[order(data$peso)]
+length(peso2[peso2 >= 46 & peso2 <= 50])
+length(peso2[peso2 >= 50 & peso2 <= 54])
+length(peso2[peso2 >= 52 & peso2 <= 58])
 
 ### Hist and frequency polygon for weight and height
 

@@ -43,6 +43,11 @@ getVarDistFreq <- function(dFreq) {
   sum((dFreq$xi - m)**2 * dFreq$Fi) / (last(dFreq$Fai) - 1)
 }
 
+getVarAmostral <- function(variable_vector) {
+  m <- getMeanPop(variable_vector)
+  sum((variable_vector - m)**2) / (length(variable_vector) - 1)
+}
+
 getDesvioPadraoPop <- function(variable_vector) {
   sqrt(getVarPop(variable_vector))
 }

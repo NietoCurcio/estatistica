@@ -4,7 +4,8 @@ source("measures/dispersao.R")
 getAssimetriaPop <- function(variable_vector) {
   m <- getMeanPop(variable_vector)
   Mo <- getModePop(variable_vector)
-  o <- getVarPop(variable_vector)
+  # o <- getVarPop(variable_vector)
+  o <- getVarAmostral(variable_vector)
 
   (m - Mo) / o
 }

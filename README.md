@@ -34,9 +34,15 @@ Dados populacionais:
 
 $ p = 0.5(n + 1) $
 
-$ Md = X*{l_p} + F_p(X*{l*{p + 1}} - X*{l_p}) $
+n é o tamanho da coluna
+
+$ Md = X{l_p} + F_p(X_{lp + 1} - X*{l_p}) $
 
 lp é a parte inteira de p e Fp é a parte decimal.
+
+$ X{l_p} $ 
+
+é o índice lp
 
 Dados amostrais:
 
@@ -97,7 +103,7 @@ $ AT = max(data$var) - min(data$var) $
 
 $ dq = Q_3 - Q_1 $
 
-$ dq = \frac{Q_3 - Q_1}{2} $
+$ dqm = \frac{Q_3 - Q_1}{2} $
 
 <strong>Desvio médio e variância</strong>:
 
